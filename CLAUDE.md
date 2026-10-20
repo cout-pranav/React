@@ -15,7 +15,6 @@ No test framework is set up.
 - React 19.3, react-dom 19.3
 - Vite 8 with `@vitejs/plugin-react` 6
 - ESLint 10 flat config (`React/eslint.config.js`) with `eslint-plugin-react-hooks` and `eslint-plugin-react-refresh`
-
 - React Router (package `react-router`, declarative mode — import from `'react-router'`, not `react-router-dom`)
 
 ## Structure (`React/src/`)
@@ -26,6 +25,7 @@ No test framework is set up.
 - `examples/index.js` — **registry**: `examples = [{ path, title, description, component }]`
 - `examples/<name>/` — one self-contained folder per example
   - `context-api/` — `ContextAPIExample.jsx` (entry, wraps `CounterProvider`), `ContextAPI.jsx`, `ContextAPIChild.jsx`, `CounterContext.jsx`
+  - `use-local-storage/` — `UseLocalStorageExample.jsx` (entry), `useLocalStorage.jsx` (custom hook, default export)
 
 ## How to add a new example
 1. Create `src/examples/<kebab-name>/` with a `<Name>Example.jsx` entry (named export). It must wrap any providers it needs, so it works standalone.
@@ -36,4 +36,5 @@ The route, sidebar link and Home page listing appear automatically — no change
 ## Conventions
 - Everything an example needs (components, contexts, hooks, CSS) lives inside its own folder; nothing example-specific in `src/` root.
 - Function components with hooks; components use named exports (`App` is the default export).
+- Custom hooks live in their example folder as `use<Name>.jsx` with a default export (e.g. `use-local-storage/useLocalStorage.jsx`).
 - Reuse the CSS variables in `index.css` (`--text-h`, `--border`, `--accent`, `--accent-bg`, …) for styling.
